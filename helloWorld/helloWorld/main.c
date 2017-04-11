@@ -14,15 +14,14 @@
 
 int main(void)
 {
-	DDRA = 0xFF;
+	DDRA = 0xFF; //i've plugged my leds to PA0 and PA1 pins, so i'm setting port A as an output
 	
-	while(1)
+	while(1) //infinite loop
 	{
-		//PORTA = 0xFF;
-		PORTA = PORTA & ~(1<<0);
-		PORTA = PORTA | (1<<1);
+		PORTA = PORTA & ~(1<<0); //set pin 0 to low
+		PORTA = PORTA | (1<<1); //set pin 1 to high
 		_delay_ms(500);
-		//PORTA = 0x00;
+
 		PORTA = PORTA | (1<<0);
 		PORTA = PORTA & ~(1<<1);
 		_delay_ms(500);
